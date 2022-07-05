@@ -814,6 +814,7 @@ namespace {{ MediatorNamespace }}
         }
         {{~ end ~}}
 
+        {{- if HasNotifications }}
         private static class NotificationTypeIndex
         {
             private static readonly global::System.Func<INotification, global::System.Threading.Tasks.ValueTask>[] Handlers;
@@ -824,6 +825,7 @@ namespace {{ MediatorNamespace }}
                 public static readonly int Id = Interlocked.Increment(ref _typeIndex);
             }
         }
+        {{ end }}
 
         /// <summary>
         /// Publish notification.
